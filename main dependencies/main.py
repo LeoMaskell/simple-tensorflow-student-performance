@@ -140,5 +140,5 @@ print(f"test accuracy: {accuracy:4f}")
 
 # idk how u actually use it but i will look it up...
 # to use the model.predict(features[...]) to use it
-print(model.predict(testX[:1]))
-print(testY[:1])
+print(f"predicted: {model.predict(testX[:1])}")
+print(f"actual: {testY[:1]}")
