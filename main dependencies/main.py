@@ -78,7 +78,7 @@ model = Sequential([
 ])
 
 
-optimizer = "Adam"#(learning_rate = 0.3)
+optimizer = "Adam"
 # compile the model
 model.compile(
         optimizer = optimizer,
@@ -102,7 +102,7 @@ print(model.output_shape)
 history = model.fit(
     trainX,
     trainY,
-    epochs=100,
+    epochs=40,
     # show logs.
     verbose=1,
     # Calculate validation results on 80% of the training data.
@@ -142,3 +142,5 @@ print(f"test accuracy: {accuracy:4f}")
 # to use the model.predict(features[...]) to use it
 print(f"predicted: {model.predict(testX[:1])}")
 print(f"actual: {testY[:1]}")
+#TODO: export the model after training and make a program to use it
+model.save('./model/modelV1.keras')
