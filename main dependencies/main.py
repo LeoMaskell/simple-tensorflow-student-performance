@@ -91,6 +91,13 @@ print('\n\n model ready for training \n\n')
 print(model)
 print(model.summary())
 
+""" # doesnt work
+print('pretraining eval:')
+oss, accuracy = model.evaluate(testX, testY)
+print(f"test loss: {loss:4f}")
+print(f"test accuracy: {accuracy:4f}")
+"""
+
 print("\n\n trainig starting to happen. \n\n")
 
 # training
@@ -102,7 +109,7 @@ print(model.output_shape)
 history = model.fit(
     trainX,
     trainY,
-    epochs=40,
+    epochs=10,
     # show logs.
     verbose=1,
     # Calculate validation results on 80% of the training data.
@@ -116,7 +123,7 @@ hist = pd.DataFrame(history.history)
 hist['epoch'] = history.epoch
 hist.tail()
 
-# uncomment if using a gui - will show a graph of training.
+# comment if not using a gui - will show a graph of training.
 
 import matplotlib.pyplot as plt
 def plot_loss(history):
@@ -142,5 +149,5 @@ print(f"test accuracy: {accuracy:4f}")
 # to use the model.predict(features[...]) to use it
 print(f"predicted: {model.predict(testX[:1])}")
 print(f"actual: {testY[:1]}")
-#TODO: export the model after training and make a program to use it
+# TODO: make a program to use the saved model and make predictions with it
 model.save('./model/modelV1.keras')
