@@ -109,11 +109,9 @@ print(model.output_shape)
 history = model.fit(
     trainX,
     trainY,
-    epochs=10,
-    # show logs.
-    verbose=1,
-    # Calculate validation results on 80% of the training data.
-    validation_split = 0.8
+    epochs=40,
+    verbose=1, # show logs
+    validation_split = 0.8 # validation results on 80% of the training data
 )
 
 
@@ -147,7 +145,8 @@ print(f"test accuracy: {accuracy:4f}")
 
 # idk how u actually use it but i will look it up...
 # to use the model.predict(features[...]) to use it
+print('example: \n')
 print(f"predicted: {model.predict(testX[:1])}")
 print(f"actual: {testY[:1]}")
-# TODO: make a program to use the saved model and make predictions with it
+
 model.save('./model/modelV1.keras')
